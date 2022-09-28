@@ -4,8 +4,8 @@ import 'card_icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
 import 'result_page.dart';
+import 'bottom_button.dart';
 
-const bottomContainerHeight = 80.0;
 const maleSelected = 1;
 const femaleSelected = 2;
 
@@ -203,30 +203,19 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ResultPage(),
-                ),
-              );
-            },
-            child: Center(
-              child: Container(
-                padding: const EdgeInsets.only(bottom: 20.0),
-                alignment: Alignment.center,
-                color: bottomContainerColor,
-                margin: const EdgeInsets.only(top: 10),
-                width: double.infinity,
-                height: bottomContainerHeight,
-                child: const Text(
-                  "Calculate The BMI",
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: BottomButton(
+              btnLabel: "Calculate The BMI",
+              onPress: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResultPage(),
+                    ));
+              },
             ),
-          )
+          ),
         ],
       ),
     );

@@ -48,3 +48,4 @@ app.*.map.json
 assets
 xaylephone.dart
 quiz_app.dart
+.gitignore
