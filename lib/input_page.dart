@@ -1,3 +1,4 @@
+import 'package:angela_app/bmi.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'card_icon_content.dart';
@@ -208,10 +209,15 @@ class _InputPageState extends State<InputPage> {
             child: BottomButton(
               btnLabel: "Calculate The BMI",
               onPress: () {
+                BMI bmi = BMI(height: height.toDouble(), weight: weight);
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ResultPage(),
+                      builder: (context) => ResultPage(
+                        result: bmi.getResult(),
+                        bmiResult: bmi.calculateBMI(),
+                        detailResult: bmi.getDetail(),
+                      ),
                     ));
               },
             ),

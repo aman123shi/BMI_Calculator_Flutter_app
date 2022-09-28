@@ -4,10 +4,11 @@ class BMI {
   double height;
   int weight;
   double _bmi = 0.0;
-  BMI({required this.height, required this.weight});
+  BMI({required this.height, required this.weight}) {
+    _bmi = weight / pow(height / 100, 2);
+  }
 
   String calculateBMI() {
-    _bmi = weight / pow(height / 100, 2);
     return _bmi.toStringAsFixed(1);
   }
 
